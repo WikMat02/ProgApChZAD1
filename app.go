@@ -11,8 +11,9 @@ import (
 	"time"
 )
 
-// Dane autora aplikacji
+// Dane autora i port aplikacji
 const autor = "Wiktoria Matacz"
+const port = "8080"
 
 // Mapa: pełna nazwa kraju => kod ISO
 var kraje = map[string]string{
@@ -48,11 +49,6 @@ type WynikPogody struct {
 func main() {
 	if kluczAPI == "" {
 		log.Fatal("Brak klucza API! Ustaw zmienną środowiskową OPENWEATHER_API_KEY.")
-	}
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
 	}
 
 	log.Printf("Data uruchomienia: %s", time.Now().Format(time.RFC3339))
