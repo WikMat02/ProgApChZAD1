@@ -9,15 +9,20 @@
 3. Użyte polecenia:
    
    a) Budowanie obrazu kontenera
+   
      docker build -t app_pogoda .
 
    b) Uruchomienie kontenera
+   
      docker run -d -p 8080:8080 --name pogoda_app -e OPENWEATHER_API_KEY=           <tutaj_klucz_API> app_pogoda
    
    c) Pobranie logów z aplikacji
+   
      docker logs pogoda_app
    
    d) Sprawdzenie liczby warstw i rozmiaru obrazu
+   
      docker image inspect app_pogoda --format='{{len .RootFS.Layers}} layers'
+   
      docker image inspect app_pogoda --format='{{.Size}} bytes'
 
